@@ -1,0 +1,21 @@
+<div class="card">
+    <!-- ele vai digitando e pesquisando -->
+    <input type="text" (input)="getPokemon($any($event.target).value)">
+    <div class="card__title">
+        <!-- PEGANDO DA CLASSE PIPE QUE CRIAMOS -->
+        <!-- <h3>{{ pokemon.name | transformador}}</h3>-->
+        <!-- <h3>{{ pokemon.name | titlecase | transformador: 'texto' : '123' }}-->                                   
+        <h3>{{ pokemon.name | titlecase}}</h3> <!-- </h3> quando colocar um pipe |, indica que essa informação 
+                                                a esquerda vai passar por uma transformação -->
+    </div>
+    <div class="card__body">
+        <img [src]="pokemon.sprites.front_default" height="150" alt="pokemon">
+    </div>
+    <div class="card__stats">
+        <span 
+            class="card__stats__type" 
+            *ngFor="let t of pokemon.types"> <!-- percorrer um array -->
+            {{ t.type.name | uppercase }} <!--{{ t.type.name | uppercase | lowercase }} -->
+        </span>
+    </div>
+</div>
